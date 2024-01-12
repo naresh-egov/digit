@@ -1,0 +1,8 @@
+license.json
+.pytest_cache
+*.pyc
+index.yaml
+*.tgz
+.idea/
+/venv
+.vscode/
