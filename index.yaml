@@ -3,7 +3,7 @@ entries:
   backbone-services:
   - apiVersion: v2
     appVersion: 2.9.0
-    created: "2024-01-12T23:14:55.833423+05:30"
+    created: "2024-01-13T00:09:01.156374+05:30"
     dependencies:
     - name: postgres
       repository: file://postgres
@@ -12,7 +12,7 @@ entries:
       repository: file://redis
       version: 0.1.0
     description: A Helm Chat to Deploy Digit Backbone Services
-    digest: 46313cf3bb824b0e7f365be268e0625696d0f9367676da38daf25cd0486eb99e
+    digest: b97fbc39d903d11a22cda96637034cc5c62268cc1af1beb80b89005903c4d7bb
     name: backbone-services
     urls:
     - https://github.com/naresh-egov/digit/releases/download/2.9/backbone-services-2.9.0.tgz
@@ -20,7 +20,7 @@ entries:
   core-services:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-01-12T23:54:14.690297+05:30"
+    created: "2024-01-13T00:09:01.164493+05:30"
     dependencies:
     - name: audit-service
       repository: file://audit-service
@@ -146,9 +146,9 @@ entries:
       repository: file://egov-data-uploader
       version: 0.1.0
     description: A Helm Chart to Deploy Digit Core Services
-    digest: e960c51391bdc38b13981662ca78e340508901840436fdd12740f781092f6252
+    digest: e2767bd01f4da441fbc866aeb3acc457ca9d41dbad14730ecb4633ff4587e0df
     name: core-services
     urls:
     - https://github.com/naresh-egov/digit/releases/download/2.9/core-services-1.0.0.tgz
     version: 1.0.0
-generated: "2024-01-12T23:54:14.681047+05:30"
+generated: "2024-01-13T00:09:01.154399+05:30"
