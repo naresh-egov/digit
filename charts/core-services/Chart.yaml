@@ -1,0 +1,171 @@
+apiVersion: v2
+description: A Helm Chart to Deploy Digit Core Services
+name: core-services
+version: 1.0.0  # Update this version as per your release
+appVersion: 1.0.0  # Update the app version as per your application's version
+
+dependencies:
+  - name: audit-service
+    version: 0.1.0
+    repository: "file://audit-service"
+
+  - name: egov-localization
+    version: 0.1.0
+    repository: "file://egov-localization"
+
+  - name: egov-telemetry-kafka-streams
+    version: 0.1.0
+    repository: "file://egov-telemetry-kafka-streams"
+
+  - name: nlp-engine
+    version: 0.1.0
+    repository: "file://nlp-engine"
+
+  - name: chatbot
+    version: 0.1.0
+    repository: "file://chatbot"
+
+  - name: egov-location
+    version: 0.1.0
+    repository: "file://egov-location"
+
+  - name: egov-url-shortening
+    version: 0.1.0
+    repository: "file://egov-url-shortening"
+
+  - name: pdf-service
+    version: 0.1.0
+    repository: "file://pdf-service"
+
+  - name: egov-accesscontrol
+    version: 0.1.0
+    repository: "file://egov-accesscontrol"
+
+  - name: egov-mdms-service
+    version: 0.1.0
+    repository: "file://egov-mdms-service"
+
+  - name: egov-notification-mail
+    version: 0.1.0
+    repository: "file://egov-notification-mail"
+
+  - name: egov-user
+    version: 0.1.0
+    repository: "file://egov-user"
+
+  - name: report
+    version: 0.1.0
+    repository: "file://report"
+
+  - name: egov-common-masters
+    version: 0.1.0
+    repository: "file://egov-common-masters"
+
+  - name: egov-notification-sms
+    version: 0.1.0
+    repository: "file://egov-notification-sms"
+
+  - name: egov-workflow
+    version: 0.1.0
+    repository: "file://egov-workflow"
+
+  - name: telemetry
+    version: 0.1.0
+    repository: "file://telemetry"
+
+  - name: egov-document-uploader
+    version: 0.1.0
+    repository: "file://egov-document-uploader"
+
+  - name: egov-otp
+    version: 0.1.0
+    repository: "file://egov-otp"
+
+  - name: egov-workflow-v2
+    version: 0.1.0
+    repository: "file://egov-workflow-v2"
+
+  - name: internal-gateway
+    version: 0.1.0
+    repository: "file://internal-gateway"
+
+  - name: xstate-chatbot
+    version: 0.1.0
+    repository: "file://xstate-chatbot"
+
+  - name: xstate-webchat
+    version: 0.1.0
+    repository: "file://xstate-webchat"
+
+  - name: user-otp
+    version: 0.1.0
+    repository: "file://user-otp"
+
+  - name: egov-filestore
+    version: 0.1.0
+    repository: "file://egov-filestore"
+
+  - name: egov-persister
+    version: 0.1.0
+    repository: "file://egov-persister"
+
+  - name: egov-pg-service
+    version: 0.1.0
+    repository: "file://egov-pg-service"
+
+  - name: mailbot
+    version: 0.1.0
+    repository: "file://mailbot"
+
+  - name: mdms-v2
+    version: 0.1.0
+    repository: "file://mdms-v2"
+
+  - name: national-dashboard-ingest
+    version: 0.1.0
+    repository: "file://national-dashboard-ingest"
+
+  - name: national-dashboard-kafka-pipeline
+    version: 0.1.0
+    repository: "file://national-dashboard-kafka-pipeline"
+
+  - name: egov-index-custom-consumer
+    version: 0.1.0
+    repository: "file://egov-index-custom-consumer"
+
+  - name: egov-indexer
+    version: 0.1.0
+    repository: "file://egov-indexer"
+
+  - name: egov-survey-services
+    version: 0.1.0
+    repository: "file://egov-survey-services"
+
+  - name: egov-searcher
+    version: 0.1.0
+    repository: "file://egov-searcher"
+
+  - name: service-request
+    version: 0.1.0
+    repository: "file://service-request"
+
+  - name: egov-idgen
+    version: 0.1.0
+    repository: "file://egov-idgen"
+
+  - name: egov-enc-service
+    version: 0.1.0
+    repository: "file://egov-enc-service"
+
+  - name: egov-pdf
+    version: 0.1.0
+    repository: "file://egov-pdf"
+
+  - name: zuul
+    version: 0.1.0
+    repository: "file://zuul"
+
+  - name: egov-data-uploader
+    version: 0.1.0
+    repository: "file://egov-data-uploader"
+
