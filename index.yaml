@@ -3,7 +3,7 @@ entries:
   backbone-services:
   - apiVersion: v2
     appVersion: 2.9.0
-    created: "2024-01-12T15:57:43.540639+05:30"
+    created: "2024-01-12T16:28:30.506991+05:30"
     dependencies:
     - name: postgres
       repository: file://postgres
@@ -17,4 +17,4 @@ entries:
     urls:
     - https://github.com/naresh-egov/digit/backbone-services-2.9.0.tgz
     version: 2.9.0
-generated: "2024-01-12T15:57:43.538989+05:30"
+generated: "2024-01-12T16:28:30.503882+05:30"
