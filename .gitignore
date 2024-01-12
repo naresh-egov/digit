@@ -1,8 +1,9 @@
-license.json
-.pytest_cache
-*.pyc
-index.yaml
+/charts/*/charts
+.idea
+.vscode
+.project
+.settings
+/charts/enterprise-metrics/vendor/tanka-util
+.DS_Store
+*.iml
 *.tgz
-.idea/
-/venv
-.vscode/
