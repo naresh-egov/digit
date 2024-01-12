@@ -1,9 +1,0 @@
-dependencies:
-- name: postgres
-  repository: file://postgres
-  version: 0.1.0
-- name: cert-manager
-  repository: file://cert-manager
-  version: 0.1.0
-digest: sha256:6e51b2201f9919e3b3fb6472b693ad24c5537551d20f4aeeeab6f4ec4db2f657
-generated: "2024-01-12T17:27:51.756737+05:30"
