@@ -8,3 +8,5 @@
 *.iml
 index.yaml
 *.lock
+*.tgz
+*.lock

@@ -23,4 +23,4 @@ You can then run `helm search repo digit` to see the charts.
 ## License
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
-[Apache 2.0 License](https://github.com/grafana/helm-charts/blob/main/LICENSE).
+[Apache 2.0 License](https://github.com/naresh-egov/digit/blob/main/LICENSE).
