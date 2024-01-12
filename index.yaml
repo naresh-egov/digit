@@ -3,7 +3,7 @@ entries:
   backbone-services:
   - apiVersion: v2
     appVersion: 2.9.0
-    created: "2024-01-12T16:28:30.506991+05:30"
+    created: "2024-01-12T17:31:43.972546+05:30"
     dependencies:
     - name: postgres
       repository: file://postgres
@@ -12,9 +12,9 @@ entries:
       repository: file://cert-manager
       version: 0.1.0
     description: A Helm Chat to Deploy Digit Backbone Services
-    digest: 0a4090215c87af6ff60b2b761b0a184f2ef38806f5525ff63caf66c8c633d6b8
+    digest: 0f6e9c90a0db2951dc21bac07a3bb02ed6c56dc85ae931529fb6e3638f02f053
     name: backbone-services
     urls:
     - https://github.com/naresh-egov/digit/backbone-services-2.9.0.tgz
     version: 2.9.0
-generated: "2024-01-12T16:28:30.503882+05:30"
+generated: "2024-01-12T17:31:43.971098+05:30"

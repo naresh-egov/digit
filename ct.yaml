@@ -10,5 +10,6 @@ chart-repos:
   - bitnami=https://charts.bitnami.com/bitnami
   - hashicorp=https://helm.releases.hashicorp.com
   - minio=https://charts.min.io
+  - digit=https://naresh-egov.github.io/digit/
 helm-extra-args: --timeout 600s
 validate-maintainers: false

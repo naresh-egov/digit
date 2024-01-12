@@ -6,5 +6,5 @@
 /charts/enterprise-metrics/vendor/tanka-util
 .DS_Store
 *.iml
-*.tgz
 index.yaml
+*.lock
