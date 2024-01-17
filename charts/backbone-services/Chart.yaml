@@ -7,6 +7,9 @@ dependencies:
   - name: postgres
     version: 0.1.0	
     repository: "file://postgres"
-  - name: cert-manager
+#  - name: cert-manager
+#    version: 0.1.0
+#    repository: "file://cert-manager"
+  - name: redis
     version: 0.1.0
-    repository: "file://cert-manager"
+    repository: "file://redis"

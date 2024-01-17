@@ -168,4 +168,7 @@ dependencies:
   - name: egov-data-uploader
     version: 0.1.0
     repository: "file://egov-data-uploader"
-
+ 
+  - name: common
+    version: 0.0.5
+    repository: "file://../common"
