@@ -13,4 +13,5 @@ dependencies:
   - name: grafana/loki-stack
     version: 2.3.0
     repository: https://grafana.github.io/loki/charts
+    
 
