@@ -1,7 +1,10 @@
 {{- define "common.name" -}}
-{{- $envOverrides := index .Values (tpl (default .Chart.Name .Values.name) .) -}} 
+{{- $envOverrides := index .Values (tpl (default .Chart.Name .Values.name) .) -}}
+{{- printf "envOverrides: %s" $envOverrides | quote -}}
 {{- $baseCommonValues := .Values.common | deepCopy -}}
+{{- printf "baseCommonValues: %s" $baseCommonValues | quote -}}
 {{- $values := dict "Values" (mustMergeOverwrite $baseCommonValues .Values $envOverrides) -}}
+{{- printf "mergedValues: %s" $values | quote -}}
 {{- with mustMergeOverwrite . $values -}}
 {{- default .Chart.Name .Values.name -}}    
 {{- end }}
