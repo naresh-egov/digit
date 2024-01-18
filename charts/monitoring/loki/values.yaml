@@ -1,0 +1,43 @@
+loki:
+  enabled: true
+  isDefault: true
+  image:
+    tag: 2.9.3
+    repository: "grafana/loki"
+  url: http://{{(include "loki.serviceName" .)}}:{{ .Values.loki.service.port }}
+  readinessProbe:
+    httpGet:
+      path: /ready
+      port: http-metrics
+    initialDelaySeconds: 45
+  livenessProbe:
+    httpGet:
+      path: /ready
+      port: http-metrics
+    initialDelaySeconds: 45
+  datasource:
+    jsonData: "{}"
+    uid: ""
+  persistence:
+    enabled: true
+    storageClassName: "default"  # Specify your storage class
+    accessModes:
+      - ReadWriteOnce
+    size: 100Gi  # Adjust the size based on your requirements
+    annotations: {}
+    subPath: ""
+  config:
+    table_manager:
+      retention_deletes_enabled: true
+      retention_period: 72h
+
+promtail:
+  enabled: true
+  config:
+    logLevel: info
+    serverPort: 3101
+    clients:
+      - url: http://{{ .Release.Name }}:3100/loki/api/v1/push
+
+
+

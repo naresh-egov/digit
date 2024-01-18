@@ -5,5 +5,8 @@ dependencies:
 - name: redis
   repository: file://redis
   version: 0.1.0
-digest: sha256:56708b87965e637f64da8d96530151ec34a93694786285c06a3cb99472ffd858
-generated: "2024-01-12T23:12:57.957747+05:30"
+- name: common
+  repository: file://../common
+  version: 0.0.5
+digest: sha256:3d0b6aaa2e44bb10dd5638bf6028984508415cfd4aa25dfed7f002d01e42d8df
+generated: "2024-01-17T12:33:37.282324+05:30"

@@ -20,6 +20,7 @@ initContainers:
 # Container Configs
 image:
   repository: "audit-service"
+# tag: v1.0.0-24873ba-4
 replicas: "1"
 healthChecks:
   enabled: true

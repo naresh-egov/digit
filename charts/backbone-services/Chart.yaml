@@ -13,3 +13,6 @@ dependencies:
   - name: redis
     version: 0.1.0
     repository: "file://redis"
+  - name: common
+    version: 0.0.5
+    repository: "file://../common"

@@ -248,7 +248,7 @@ hostAliases: []
   #     - "my.host.com"
 
 ingress:
-  enabled: false
+  enabled: true
   # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
   # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
   # ingressClassName: nginx
@@ -263,7 +263,7 @@ ingress:
   pathType: Prefix
 
   hosts:
-    - chart-example.local
+    - digit-tls.digit.org
   ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
   extraPaths: []
   # - path: /*
@@ -271,19 +271,19 @@ ingress:
   #     serviceName: ssl-redirect
   #     servicePort: use-annotation
   ## Or for k8s > 1.19
-  # - path: /*
-  #   pathType: Prefix
-  #   backend:
-  #     service:
-  #       name: ssl-redirect
-  #       port:
-  #         name: use-annotation
+   - path: /monitoring
+     pathType: Prefix
+     backend:
+       service:
+         name: ssl-redirect
+         port:
+           name: use-annotation
 
 
   tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+    - secretName: digit-tls-tls
+      hosts:
+        - digit-tls.digit.org
 
 resources: {}
 #  limits:
@@ -349,11 +349,11 @@ extraContainerVolumes: []
 ##
 persistence:
   type: pvc
-  enabled: false
+  enabled: true
   # storageClassName: default
   accessModes:
     - ReadWriteOnce
-  size: 10Gi
+  size: 15Gi
   # annotations: {}
   finalizers:
     - kubernetes.io/pvc-protection
@@ -582,7 +582,7 @@ plugins: []
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
-datasources: {}
+#datasources: {}
 #  datasources.yaml:
 #    apiVersion: 1
 #    datasources:
@@ -601,6 +601,28 @@ datasources: {}
 #        defaultRegion: us-east-1
 #    deleteDatasources: []
 #    - name: Prometheus
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: Loki
+      type: loki
+      access: proxy
+      url: http://loki:3100
+      jsonData:
+        maxLines: 1000
+    - name: Prometheus
+      type: prometheus
+      access: proxy
+      url: http://prometheus-kube-prometheus-prometheus:9090   # Replace with your Prometheus server URL
+      basicAuth: false
+#    - name: Loki
+#      type: loki
+#      access: proxy
+#      editable: true
+#      isDefault: false
+#      url: http://loki:3100
+#      basicAuth: false 
 
 ## Configure grafana alerting (can be templated)
 ## ref: http://docs.grafana.org/administration/provisioning/#alerting
@@ -691,7 +713,7 @@ notifiers: {}
 ##
 ## `path` must be /var/lib/grafana/dashboards/<provider_name>
 ##
-dashboardProviders: {}
+#dashboardProviders: {}
 #  dashboardproviders.yaml:
 #    apiVersion: 1
 #    providers:
@@ -710,7 +732,7 @@ dashboardProviders: {}
 ##
 ## dashboards per provider, use provider name as key.
 ##
-dashboards: {}
+#dashboards: {}
   # default:
   #   some-dashboard:
   #     json: |
@@ -738,6 +760,43 @@ dashboards: {}
   #     url: https://example.com/repository/test-azure.json
   #     basic: ''
   #     acceptHeader: '*/*'
+
+## CUSTOM DASHBOARDS  #####
+
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+    - name: 'grafana-dashboards-kubernetes'
+      orgId: 1
+      folder: 'Kubernetes'
+      type: file
+      disableDeletion: true
+      editable: true
+      options:
+        path: /var/lib/grafana/dashboards/grafana-dashboards-kubernetes
+dashboards:
+  grafana-dashboards-kubernetes:
+    k8s-system-api-server:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-api-server.json
+      token: ''
+    k8s-system-coredns:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-coredns.json
+      token: ''
+    k8s-views-global:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-global.json
+      token: ''
+    k8s-views-namespaces:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-namespaces.json
+      token: ''
+    k8s-views-nodes:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-nodes.json
+      token: ''
+    k8s-views-pods:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-pods.json
+      token: ''
+
+
 
 ## Reference to external ConfigMap per provider. Use provider name as key and ConfigMap name as value.
 ## A provider dashboards must be defined either by external ConfigMaps or in values.yaml, not in both.
@@ -1301,12 +1360,3 @@ extraObjects: []
   #       - key: grafana-admin-password
   #         name: adminPassword
 
-# assertNoLeakedSecrets is a helper function defined in _helpers.tpl that checks if secret
-# values are not exposed in the rendered grafana.ini configmap. It is enabled by default.
-#
-# To pass values into grafana.ini without exposing them in a configmap, use variable expansion:
-# https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#variable-expansion
-#
-# Alternatively, if you wish to allow secret values to be exposed in the rendered grafana.ini configmap,
-# you can disable this check by setting assertNoLeakedSecrets to false.
-assertNoLeakedSecrets: true

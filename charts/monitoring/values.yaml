@@ -1,0 +1,9 @@
+#Digit Monitoring
+
+grafana:
+  enabled: true
+kube-prometheus-stack:
+  enabled: true
+loki:
+  enabled: true
+

@@ -1,17 +1,23 @@
 apiVersion: v2
-description: A Helm Chat to Deploy Digit Backbone Services
-name: monitoring
-version: 2.9.0
-appVersion: 2.9.0
+name: digit-monitoring
+description: A Helm chart for Grafana, Prometheus, and Loki
+version: 0.1.0
+appVersion: "1.16.0"
+
 dependencies:
   - name: grafana
-    version: 7.5.0
+    version: 7.2.1
     repository: https://grafana.github.io/helm-charts
-  - name: prometheus-community/prometheus
-    version: 14.3.0
+    files:
+      - grafana/values.yaml
+  - name: kube-prometheus-stack
+    version: 55.11.0
     repository: https://prometheus-community.github.io/helm-charts
-  - name: grafana/loki-stack
-    version: 2.3.0
-    repository: https://grafana.github.io/loki/charts
-    
+    files:
+      - prometheus/values.yaml
+  - name: loki-stack
+    version: 2.10.0
+    repository: https://grafana.github.io/helm-charts
+    files:
+      - loki/values.yaml
 

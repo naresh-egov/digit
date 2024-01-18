@@ -1,0 +1,5 @@
+subcharts:
+  - name: audit-service
+    tag: v1.0.0-24873ba-4
+
+
