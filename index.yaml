@@ -3,7 +3,7 @@ entries:
   backbone-services:
   - apiVersion: v2
     appVersion: 2.9.0
-    created: "2024-01-13T00:09:01.156374+05:30"
+    created: "2024-01-18T19:08:08.227965+05:30"
     dependencies:
     - name: postgres
       repository: file://postgres
@@ -20,7 +20,7 @@ entries:
   core-services:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-01-13T00:09:01.164493+05:30"
+    created: "2024-01-18T19:08:08.235307+05:30"
     dependencies:
     - name: audit-service
       repository: file://audit-service
@@ -151,4 +151,24 @@ entries:
     urls:
     - https://github.com/naresh-egov/digit/releases/download/2.9/core-services-1.0.0.tgz
     version: 1.0.0
-generated: "2024-01-13T00:09:01.154399+05:30"
+  digit-monitoring:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-01-18T19:08:08.262363+05:30"
+    dependencies:
+    - name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 7.2.1
+    - name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 55.11.0
+    - name: loki-stack
+      repository: https://grafana.github.io/helm-charts
+      version: 2.10.0
+    description: A Helm chart for Grafana, Prometheus, and Loki
+    digest: 86632d70f6820e28f3701ec4959d26c912bdf55261cc912fd5970dc4e09276fd
+    name: digit-monitoring
+    urls:
+    - https://github.com/naresh-egov/digit/releases/download/2.9/digit-monitoring-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-01-18T19:08:08.226295+05:30"
