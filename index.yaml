@@ -1,5 +1,32 @@
 apiVersion: v1
 entries:
+  grafana:
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/grafana/helm-charts
+        - name: Upstream Project
+          url: https://github.com/grafana/grafana
+    apiVersion: v2
+    appVersion: 10.2.3
+    created: "2024-01-29T17:58:08.282352+05:30"
+    description: The leading tool for querying and visualizing time series and metrics.
+    digest: 970f274d0bc0e568a1ca1d56eb51af8444f8741f4e7b69fb93373f515ae7693d
+    home: https://grafana.com
+    icon: https://artifacthub.io/image/b4fed1a7-6c8f-4945-b99d-096efa3e4116
+    keywords:
+    - monitoring
+    - metric
+    kubeVersion: ^1.8.0-0
+    name: grafana
+    sources:
+    - https://github.com/grafana/grafana
+    - https://github.com/grafana/helm-charts
+    type: application
+    urls:
+    - https://github.com/naresh-egov/digit/releases/download/2.9/grafana-7.2.5.tgz
+    version: 7.2.5
   kube-prometheus-stack:
   - annotations:
       artifacthub.io/license: Apache-2.0
@@ -11,7 +38,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v0.71.2
-    created: "2024-01-29T17:11:16.637301+05:30"
+    created: "2024-01-29T17:58:08.302533+05:30"
     dependencies:
     - condition: crds.enabled
       name: crds
@@ -37,7 +64,7 @@ entries:
       and Prometheus rules combined with documentation and scripts to provide easy
       to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
       Prometheus Operator.
-    digest: bc04722a09468a34f0cce7a89e14e244d0120dd9ef7f5a93a645cfd8d5feb059
+    digest: 2b524a7ee82459b1860f7fee60c5faa9e07ecc867175bd9543631c614951f942
     home: https://github.com/prometheus-operator/kube-prometheus
     icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
     keywords:
@@ -45,23 +72,6 @@ entries:
     - prometheus
     - kube-prometheus
     kubeVersion: '>=1.19.0-0'
-    maintainers:
-    - email: andrew@quadcorps.co.uk
-      name: andrewgkew
-    - email: gianrubio@gmail.com
-      name: gianrubio
-    - email: github.gkarthiks@gmail.com
-      name: gkarthiks
-    - email: kube-prometheus-stack@sisti.pt
-      name: GMartinez-Sisti
-    - email: github@jkroepke.de
-      name: jkroepke
-    - email: scott@r6by.com
-      name: scottrigby
-    - email: miroslav.hadzhiev@gmail.com
-      name: Xtigyro
-    - email: quentin.bisson@gmail.com
-      name: QuentinBisson
     name: kube-prometheus-stack
     sources:
     - https://github.com/prometheus-community/helm-charts
@@ -70,4 +80,51 @@ entries:
     urls:
     - https://github.com/naresh-egov/digit/releases/download/2.9/kube-prometheus-stack-56.2.1.tgz
     version: 56.2.1
-generated: "2024-01-29T17:11:16.618646+05:30"
+  loki-stack:
+  - apiVersion: v1
+    appVersion: v2.9.3
+    created: "2024-01-29T17:58:08.310912+05:30"
+    dependencies:
+    - condition: loki.enabled
+      name: loki
+      repository: https://grafana.github.io/helm-charts
+      version: ^2.15.2
+    - condition: promtail.enabled
+      name: promtail
+      repository: https://grafana.github.io/helm-charts
+      version: ^6.7.4
+    - condition: fluent-bit.enabled
+      name: fluent-bit
+      repository: https://grafana.github.io/helm-charts
+      version: ^2.3.0
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: ~6.43.0
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: ~19.7.2
+    - condition: filebeat.enabled
+      name: filebeat
+      repository: https://helm.elastic.co
+      version: ~7.17.1
+    - condition: logstash.enabled
+      name: logstash
+      repository: https://helm.elastic.co
+      version: ~7.17.1
+    description: 'Loki: like Prometheus, but for logs.'
+    digest: 23e49c63a97a65f7d4a5bf2e20ad46a4e4cd8ad09980b7d4eac66d9d9da63b3d
+    home: https://grafana.com/loki
+    icon: https://raw.githubusercontent.com/grafana/loki/master/docs/sources/logo.png
+    kubeVersion: ^1.10.0-0
+    maintainers:
+    - email: lokiproject@googlegroups.com
+      name: Loki Maintainers
+    name: loki-stack
+    sources:
+    - https://github.com/grafana/loki
+    urls:
+    - https://github.com/naresh-egov/digit/releases/download/2.9/loki-stack-2.10.1.tgz
+    version: 2.10.1
+generated: "2024-01-29T17:58:08.279852+05:30"
