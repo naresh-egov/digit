@@ -1,174 +1,73 @@
 apiVersion: v1
 entries:
-  backbone-services:
-  - apiVersion: v2
-    appVersion: 2.9.0
-    created: "2024-01-18T19:08:08.227965+05:30"
+  kube-prometheus-stack:
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts
+        - name: Upstream Project
+          url: https://github.com/prometheus-operator/kube-prometheus
+      artifacthub.io/operator: "true"
+    apiVersion: v2
+    appVersion: v0.71.2
+    created: "2024-01-29T17:11:16.637301+05:30"
     dependencies:
-    - name: postgres
-      repository: file://postgres
-      version: 0.1.0
-    - name: redis
-      repository: file://redis
-      version: 0.1.0
-    description: A Helm Chat to Deploy Digit Backbone Services
-    digest: b97fbc39d903d11a22cda96637034cc5c62268cc1af1beb80b89005903c4d7bb
-    name: backbone-services
-    urls:
-    - https://github.com/naresh-egov/digit/releases/download/2.9/backbone-services-2.9.0.tgz
-    version: 2.9.0
-  core-services:
-  - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2024-01-18T19:08:08.235307+05:30"
-    dependencies:
-    - name: audit-service
-      repository: file://audit-service
-      version: 0.1.0
-    - name: egov-localization
-      repository: file://egov-localization
-      version: 0.1.0
-    - name: egov-telemetry-kafka-streams
-      repository: file://egov-telemetry-kafka-streams
-      version: 0.1.0
-    - name: nlp-engine
-      repository: file://nlp-engine
-      version: 0.1.0
-    - name: chatbot
-      repository: file://chatbot
-      version: 0.1.0
-    - name: egov-location
-      repository: file://egov-location
-      version: 0.1.0
-    - name: egov-url-shortening
-      repository: file://egov-url-shortening
-      version: 0.1.0
-    - name: pdf-service
-      repository: file://pdf-service
-      version: 0.1.0
-    - name: egov-accesscontrol
-      repository: file://egov-accesscontrol
-      version: 0.1.0
-    - name: egov-mdms-service
-      repository: file://egov-mdms-service
-      version: 0.1.0
-    - name: egov-notification-mail
-      repository: file://egov-notification-mail
-      version: 0.1.0
-    - name: egov-user
-      repository: file://egov-user
-      version: 0.1.0
-    - name: report
-      repository: file://report
-      version: 0.1.0
-    - name: egov-common-masters
-      repository: file://egov-common-masters
-      version: 0.1.0
-    - name: egov-notification-sms
-      repository: file://egov-notification-sms
-      version: 0.1.0
-    - name: egov-workflow
-      repository: file://egov-workflow
-      version: 0.1.0
-    - name: telemetry
-      repository: file://telemetry
-      version: 0.1.0
-    - name: egov-document-uploader
-      repository: file://egov-document-uploader
-      version: 0.1.0
-    - name: egov-otp
-      repository: file://egov-otp
-      version: 0.1.0
-    - name: egov-workflow-v2
-      repository: file://egov-workflow-v2
-      version: 0.1.0
-    - name: internal-gateway
-      repository: file://internal-gateway
-      version: 0.1.0
-    - name: xstate-chatbot
-      repository: file://xstate-chatbot
-      version: 0.1.0
-    - name: xstate-webchat
-      repository: file://xstate-webchat
-      version: 0.1.0
-    - name: user-otp
-      repository: file://user-otp
-      version: 0.1.0
-    - name: egov-filestore
-      repository: file://egov-filestore
-      version: 0.1.0
-    - name: egov-persister
-      repository: file://egov-persister
-      version: 0.1.0
-    - name: egov-pg-service
-      repository: file://egov-pg-service
-      version: 0.1.0
-    - name: mailbot
-      repository: file://mailbot
-      version: 0.1.0
-    - name: mdms-v2
-      repository: file://mdms-v2
-      version: 0.1.0
-    - name: national-dashboard-ingest
-      repository: file://national-dashboard-ingest
-      version: 0.1.0
-    - name: national-dashboard-kafka-pipeline
-      repository: file://national-dashboard-kafka-pipeline
-      version: 0.1.0
-    - name: egov-index-custom-consumer
-      repository: file://egov-index-custom-consumer
-      version: 0.1.0
-    - name: egov-indexer
-      repository: file://egov-indexer
-      version: 0.1.0
-    - name: egov-survey-services
-      repository: file://egov-survey-services
-      version: 0.1.0
-    - name: egov-searcher
-      repository: file://egov-searcher
-      version: 0.1.0
-    - name: service-request
-      repository: file://service-request
-      version: 0.1.0
-    - name: egov-idgen
-      repository: file://egov-idgen
-      version: 0.1.0
-    - name: egov-enc-service
-      repository: file://egov-enc-service
-      version: 0.1.0
-    - name: egov-pdf
-      repository: file://egov-pdf
-      version: 0.1.0
-    - name: zuul
-      repository: file://zuul
-      version: 0.1.0
-    - name: egov-data-uploader
-      repository: file://egov-data-uploader
-      version: 0.1.0
-    description: A Helm Chart to Deploy Digit Core Services
-    digest: e2767bd01f4da441fbc866aeb3acc457ca9d41dbad14730ecb4633ff4587e0df
-    name: core-services
-    urls:
-    - https://github.com/naresh-egov/digit/releases/download/2.9/core-services-1.0.0.tgz
-    version: 1.0.0
-  digit-monitoring:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2024-01-18T19:08:08.262363+05:30"
-    dependencies:
-    - name: grafana
-      repository: https://grafana.github.io/helm-charts
-      version: 7.2.1
-    - name: kube-prometheus-stack
+    - condition: crds.enabled
+      name: crds
+      repository: ""
+      version: 0.0.0
+    - condition: kubeStateMetrics.enabled
+      name: kube-state-metrics
       repository: https://prometheus-community.github.io/helm-charts
-      version: 55.11.0
-    - name: loki-stack
+      version: 5.16.*
+    - condition: nodeExporter.enabled
+      name: prometheus-node-exporter
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.26.*
+    - condition: grafana.enabled
+      name: grafana
       repository: https://grafana.github.io/helm-charts
-      version: 2.10.0
-    description: A Helm chart for Grafana, Prometheus, and Loki
-    digest: 86632d70f6820e28f3701ec4959d26c912bdf55261cc912fd5970dc4e09276fd
-    name: digit-monitoring
+      version: 7.2.*
+    - condition: windowsMonitoring.enabled
+      name: prometheus-windows-exporter
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 0.3.*
+    description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
+      and Prometheus rules combined with documentation and scripts to provide easy
+      to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
+      Prometheus Operator.
+    digest: bc04722a09468a34f0cce7a89e14e244d0120dd9ef7f5a93a645cfd8d5feb059
+    home: https://github.com/prometheus-operator/kube-prometheus
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    keywords:
+    - operator
+    - prometheus
+    - kube-prometheus
+    kubeVersion: '>=1.19.0-0'
+    maintainers:
+    - email: andrew@quadcorps.co.uk
+      name: andrewgkew
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: github.gkarthiks@gmail.com
+      name: gkarthiks
+    - email: kube-prometheus-stack@sisti.pt
+      name: GMartinez-Sisti
+    - email: github@jkroepke.de
+      name: jkroepke
+    - email: scott@r6by.com
+      name: scottrigby
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: quentin.bisson@gmail.com
+      name: QuentinBisson
+    name: kube-prometheus-stack
+    sources:
+    - https://github.com/prometheus-community/helm-charts
+    - https://github.com/prometheus-operator/kube-prometheus
+    type: application
     urls:
-    - https://github.com/naresh-egov/digit/releases/download/2.9/digit-monitoring-0.1.0.tgz
-    version: 0.1.0
-generated: "2024-01-18T19:08:08.226295+05:30"
+    - https://github.com/naresh-egov/digit/releases/download/2.9/kube-prometheus-stack-56.2.1.tgz
+    version: 56.2.1
+generated: "2024-01-29T17:11:16.618646+05:30"
